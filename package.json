@@ -30,7 +30,7 @@
       "pre-commit": "lint-staged"
     }
   },
-  "ling-staged": {
+  "lint-staged": {
     "src/**/*.{ts,js}": [
       "npm run lint-fix"
     ]
