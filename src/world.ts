@@ -8,7 +8,7 @@ export default class World {
   }
 
   //外部から呼び出せるメソッドを定義
-  public sayHello(elem: HTMLElement | null) {
+  public sayHello(elem) {
     if (elem) {
       elem.innerText = this.message
     }
