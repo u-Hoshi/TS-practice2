@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   // 子の中に書いたものがwebpackの監視対象となる
@@ -22,9 +22,9 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'ts-loader',
         test: /\ts.$/,
+        loader: 'ts-loader',
       },
     ],
   },
-};
+}
