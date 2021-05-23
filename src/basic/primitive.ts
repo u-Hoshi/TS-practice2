@@ -1,4 +1,4 @@
-export default function primitiveSample() {
+export default function primitiveSample(): void {
   const name = 'Torahack'
   // name = 123 // numberの値を再代入しようとするとエラーになる
   console.log('primitive sample 1:', typeof name, name)

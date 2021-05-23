@@ -5,11 +5,17 @@
 // world.sayHello(root)
 
 // 第3回
-import { notExistSample, primitiveSample } from './basic'
+// import { notExistSample, primitiveSample } from './basic'
 
-primitiveSample()
-notExistSample()
+// primitiveSample()
+// notExistSample()
 
 // 第4回
 // import { logMessage } from './function/basic'
 // logMessage('sample')
+
+import objectSample from './object/object'
+objectSample()
+
+import typeAliasSample from './object/alias'
+typeAliasSample()
