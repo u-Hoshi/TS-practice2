@@ -1,3 +1,3 @@
-export const logMessage = (message: string): void => {
+export const logMessage = (message: string) => {
   console.log('function', message)
 }

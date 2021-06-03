@@ -20,5 +20,12 @@
 // import typeAliasSample from './object/alias'
 // typeAliasSample()
 
-import arraySample from './array/array'
-arraySample()
+// import arraySample from './array/array'
+// arraySample()
+
+// ジェネリック型とポリモーフィズム
+import genericsBasicSample from './generics/basic'
+genericsBasicSample()
+
+import mapStringToNumbers from './generics/index'
+mapStringToNumbers()
