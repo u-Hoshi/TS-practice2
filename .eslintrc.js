@@ -18,6 +18,6 @@ module.exports = {
   root: true, // 上位ディレクトリにある他のeslintrcを参照しないようにする
   rules: {
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
+    // '@typescript-eslint/no-unused-vars': ['error'],
   },
 }
