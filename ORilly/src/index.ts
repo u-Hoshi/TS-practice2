@@ -15,7 +15,7 @@ const d = c.apple * 4
 
 // symbol
 const h = Symbol('a')
-console.log(h)
+console.log(d, h)
 
 const j = {
   a: 'x',
@@ -33,3 +33,43 @@ console.log(j)
 //   name: 'fuganame',
 // }
 // console.log(obj)
+
+const sample: {
+  readonly name: string
+} = {
+  name: 'ban',
+}
+
+console.log(sample)
+
+type Cat = { name: string; purrs: boolean }
+type Dog = { name: string; barks: boolean; wags: boolean }
+type CatOrDogBoth = Cat | Dog
+type CatAndDog = Cat & Dog
+
+let aa: CatOrDogBoth = {
+  name: 'Boonkers',
+  purrs: true,
+}
+
+aa = {
+  name: 'Diamond',
+  barks: true,
+  wags: true,
+}
+
+aa = {
+  name: 'Donkers',
+  barks: false,
+  purrs: true,
+  wags: true,
+}
+
+const bb: CatAndDog = {
+  name: 'hoge',
+  barks: true,
+  purrs: false,
+  wags: true,
+}
+
+console.log(aa, bb)
