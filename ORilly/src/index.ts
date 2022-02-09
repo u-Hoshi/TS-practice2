@@ -105,3 +105,16 @@ const list: [number, boolean, ...string[]] = [1, false, 'a', 'b']
 console.log(friends, list)
 
 /* タプルによって型付けするリストの長さを限定することができる。従来の配列より安全を得ることができる */
+
+// 列挙型
+enum Language {
+  English,
+  Spanish,
+  Russian,
+}
+
+const myFirstLanguage = Language.English
+const mySecondLanguage = Language[0]
+
+console.log(myFirstLanguage)
+console.log(mySecondLanguage)
