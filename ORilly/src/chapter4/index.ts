@@ -44,3 +44,30 @@ const log3 = (message: string, context: Context = {}) => {
   const time = new Date().toLocaleDateString()
   console.log(time, message, context.userId || 'Not signed in')
 }
+
+// レストパラメータ
+const sum = (numbers: number[]) => {
+  return numbers.reduce((total, n) => total + n, 0)
+}
+sum([3, 4])
+
+const sumVariadicSafe = (...numbers: number[]) => {
+  return numbers.reduce((total, n) => total + n, 0)
+}
+sumVariadicSafe(4, 5, 7)
+
+// thisの型付け
+// thisはメソッドの呼び出し時にドット(.)の左側にあるものの値を取る、というのが一般的
+const x = {
+  a() {
+    return this
+  },
+}
+x.a() // この場合はオブジェクトxを取る
+
+function fancyDate(this: Date) {
+  return `${this.getMonth() + 1}/${this.getDate()}/${this.getFullYear()}`
+}
+
+fancyDate.call(new Date())
+// thisは関数の宣言方法ではなく、関数の呼び出し方によって変わる
