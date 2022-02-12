@@ -71,3 +71,26 @@ function fancyDate(this: Date) {
 
 fancyDate.call(new Date())
 // thisは関数の宣言方法ではなく、関数の呼び出し方によって変わる
+
+// ジェネレーター
+function* createFibonacciGenerator() {
+  let a = 0
+  let b = 1
+  while (true) {
+    yield a
+    ;[a, b] = [b, a + b]
+  }
+}
+
+const fibonachGenerator = createFibonacciGenerator()
+fibonachGenerator.next()
+
+function* createNumbers(): Generator<number> {
+  let n = 0
+  while (1) {
+    yield n++
+  }
+}
+
+const numbers = createNumbers()
+numbers.next()
