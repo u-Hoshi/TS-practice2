@@ -92,5 +92,15 @@ function* createNumbers(): Generator<number> {
   }
 }
 
-const numbers = createNumbers()
-numbers.next()
+// const numbers = createNumbers()
+// numbers.next()
+
+// イテレーター
+
+const numbers = {
+  *[Symbol.iterator]() {
+    for (let n = 1; n <= 10; n++) {
+      yield n
+    }
+  },
+}
