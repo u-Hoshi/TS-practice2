@@ -104,3 +104,21 @@ const numbers = {
     }
   },
 }
+
+// 呼び出しシグネチャ
+type Great = (name: string) => string
+
+type Log4 = (message: string, userId?: string) => void
+
+const log4: Log4 = (message, userId = 'not signed in') => {
+  const time = new Date().toISOString()
+  console.log(time, message, userId)
+}
+
+function times(f: (index: number) => void, n: number) {
+  for (let i = 0; i < n; i++) {
+    f(i)
+  }
+}
+
+times((n) => console.log(n), 4)
