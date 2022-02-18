@@ -122,3 +122,21 @@ function times(f: (index: number) => void, n: number) {
 }
 
 times((n) => console.log(n), 4)
+
+// オーバーロードされた関数の型
+
+// 呼び出しシグネチャの省略記法
+type log5 = (message: string, userId?: string) => void
+
+// 完全な呼び出しシグネチャ
+type log6 = { (message: string, userId?: string): void }
+
+// オーバーロードされた関数＝複数の呼び出しシグネチャを持つ関数
+
+type Reserve = {
+  (from:Date,to:Date,destination:string):Reservation
+}
+
+const reserve: Reserve(from, to, desination) => {
+  console.log(from,to,desination)
+}
