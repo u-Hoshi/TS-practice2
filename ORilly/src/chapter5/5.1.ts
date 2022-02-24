@@ -67,3 +67,23 @@ class Game {
     ]
   }
 }
+
+// 5.3 戻り値の型としてthisを使用する
+const set = new Set()
+set.add(1).add(2).add(3)
+set.has(2)
+set.has(4)
+
+// class Set {
+//   has(value: numbe): boolean {}
+
+//   add (value:number):this{}
+
+// }
+
+// class MutableSet extends Set {
+//   delete(value: number): boolean {}
+//   add(value: number): boolean {}
+// }
+
+// 5.4 インターフェース
