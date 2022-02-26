@@ -87,3 +87,74 @@ set.has(4)
 // }
 
 // 5.4 インターフェース
+// インターフェースは型エイリアス同様に、型に名前をつけるものである。
+// interface Sushi{
+//   calories: number
+//   salty: boolean
+//   tasty:boolean
+// }
+
+// type Cake = {
+//   calories: number
+//   sweet: boolean
+//   tasty:boolean
+// }
+
+type Food = {
+  calories: number
+  tasty: boolean
+}
+
+type Sushi = Food & {
+  salty: boolean
+}
+
+type Cake = Food & {
+  sweet: boolean
+}
+
+// 上と同じことをinterfaceを使ってもできる
+
+interface Food1 {
+  calories: number
+  tasty: boolean
+}
+
+interface Sushi1 extends Food {
+  salty: boolean
+}
+
+interface Cake1 extends Food {
+  sweet: boolean
+}
+
+/*
+ type(型,型エイリアス)とインターフェースの違い
+ 1. 型の方が右辺に任意の方をして出来る点で汎用的である
+ 2. インターフェースを拡張する場合にTSは拡張元のインターフェースが拡張先のインターフェースに割り当てが可能かどうかを確認する
+ 3. 同じスコープ内に同じ名前のインターフェースが複数存在する場合、それらは自動的にマージされる(宣言のマージ)
+ */
+
+// 1 インターフェースは形状でなければならない
+type A = number
+type B = A & string
+interface C {
+  hoge: string
+}
+
+interface D {
+  good(x: number): string
+  bad(x: number): string
+}
+// interface E extends D{ エラーが表示される
+//   good(x: number|string): string
+//   bad:(x:string):string
+// }
+
+// 宣言のマージ
+interface F {
+  foo: number
+}
+interface F {
+  bar: string
+}
