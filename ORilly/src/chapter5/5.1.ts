@@ -158,3 +158,27 @@ interface F {
 interface F {
   bar: string
 }
+
+// 5.4.2 実装
+// implements
+
+interface Animal {
+  eat(food: string): void
+  sleep(hours: number): void
+}
+
+class Panda implements Animal {
+  eat(food: string): void {
+    console.log(food)
+  }
+  sleep(hours: number): void {
+    console.log(hours)
+  }
+}
+
+// 5.7 ポリモーフィズム
+// 関数や型と同様にクラスとインターフェースでもジェネリック型パラメーターをサポートしている。
+
+//5.8 ミックスイン
+// traitやmixinを自分で実装することができ、それにより多重継承をシュミレートし、役割指向プログラミングを行うことができる。
+// is-aではなくcanやhas a関係を記述する
