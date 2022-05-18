@@ -1,5 +1,7 @@
 // クラスと継承
 
+import { url } from 'inspector'
+
 // チェスのゲームを表す
 // class Game {}
 
@@ -182,3 +184,79 @@ class Panda implements Animal {
 //5.8 ミックスイン
 // traitやmixinを自分で実装することができ、それにより多重継承をシュミレートし、役割指向プログラミングを行うことができる。
 // is-aではなくcanやhas a関係を記述する
+
+//5.9 デコレーター
+// デコレーターはTSの実験的な機能の1つでクラス、クラスメソッド、プロパティ、メソッドパラメーターを使ってメタプログラミングを行うための簡潔な構文を提供している
+
+//5.10 finalクラスをシュミレートする
+
+//5.11 デザインパターン
+//.1 ファクトリーパターン(何らかの型のオブジェクトを作成するための方法であり、どのような具体的なオブジェクトを作成すべきかの決定を、決めさせる)
+
+type Shoe = {
+  purpose: string
+}
+
+class BalletFlat implements Shoe {
+  purpose = 'dancing'
+}
+
+class Boot implements Shoe {
+  purpose = 'woodcutting'
+}
+
+class Sneaker implements Shoe {
+  purpose = 'walking'
+}
+
+// 靴のファクトリー
+let Shoe = {
+  create(type: 'balletFlat' | 'boot' | 'sneaker'): Shoe {
+    switch (type) {
+      case 'balletFlat':
+        return new BalletFlat()
+      case 'boot':
+        return new Boot()
+      case 'sneaker':
+        return new Sneaker()
+    }
+  },
+}
+
+//.2 ビルダーパターン (オブジェクトの構築とそのオブジェクトを実際に実装する方法を分離するためのもの)
+
+// class RequestBuilder {}
+
+// class RequestBuilder {
+//   private url: string | null = null
+
+//   setURL(url: string): this {
+//     this.url = url
+//     return this
+//   }
+// }
+
+class RequestBuilder {
+  private data: object | null = null
+  private method: 'get' | 'post' | null = null
+  private url: string | null = null
+
+  setMethod(method: 'get' | 'post'): this {
+    this.method = method
+    return this
+  }
+
+  setData(data: object): this {
+    this.data = data
+    return this
+  }
+
+  setURL(url: string): this {
+    this.url = url
+    return this
+  }
+
+  send() {
+    // 略
+  }
+}
