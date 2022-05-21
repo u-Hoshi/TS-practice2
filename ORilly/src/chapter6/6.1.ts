@@ -64,3 +64,24 @@ type Friend = FriendList['firends'][number]
 // keyofを使うとオブジェクトの全てのキーを文字列リテラル型の合併として取得できる
 type ResponseKeys = keyof APIResponse
 type UserKeys = keyof APIResponse['user']
+
+// レコード型
+type WeekDay = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri'
+type Day = WeekDay | 'Sat' | 'Sun'
+
+const nextDay: Record<WeekDay, Day> = {
+  Mon: 'Tue',
+}
+
+// マップ
+const nextDay2: { [K in WeekDay]: Day } = {
+  Mon: 'Tue',
+}
+
+// type MyMappedType = {
+//   [Key in UnionType]: valueType
+// }
+
+type Record<K extends keyof any, T> = {
+  [P in K]: T
+}
