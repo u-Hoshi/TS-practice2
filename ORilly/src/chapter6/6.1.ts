@@ -69,19 +69,72 @@ type UserKeys = keyof APIResponse['user']
 type WeekDay = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri'
 type Day = WeekDay | 'Sat' | 'Sun'
 
-const nextDay: Record<WeekDay, Day> = {
-  Mon: 'Tue',
-}
+// const nextDay: Record<WeekDay, Day> = {
+//   Mon: 'Tue',
+// }
 
 // マップ
-const nextDay2: { [K in WeekDay]: Day } = {
-  Mon: 'Tue',
-}
+// const nextDay2: { [K in WeekDay]: Day } = {
+//   Mon: 'Tue',
+// }
 
 // type MyMappedType = {
 //   [Key in UnionType]: valueType
 // }
 
-type Record<K extends keyof any, T> = {
+type Record2<K extends keyof any, T> = {
   [P in K]: T
 }
+
+// コンパニオンオブジェクト
+type Unit = 'EUR' | 'GBR' | 'JPY' | 'USD'
+
+type Currency = {
+  unit: Unit
+  value: number
+}
+
+const Currency = {
+  from(value: number, unit: Unit): Currency {
+    return {
+      unit: unit,
+      value,
+    }
+  },
+}
+
+// ユーザー定義型ガード
+// 頻出頻度高そう
+// function isString(a: unknown): boolean {
+//   return typeof a === 'string'
+// }
+
+isString('a')
+isString([7])
+
+function parseInput(input: string | number) {
+  let formattedInput: string
+  if (isString(input)) {
+    formattedInput = input.toUpperCase()
+  }
+}
+
+function isString(a: unknown): a is string {
+  return typeof a === 'string'
+}
+
+// 条件型
+type isString<T> = T extends string ? true : false
+//  「T extends string」では「Tはstringのサブタイプか？を確認している」
+
+// 分配条件型
+type ToArray<T> = T[]
+type A = ToArray<number>
+type B = ToArray<number | string>
+
+// inferキーワード
+type ElementType<T> = T extends unknown[] ? T[number] : T
+type C = ElementType<number[]>
+
+type ElementType2<T> = T extends (infer U)[] ? U : T
+type D = ElementType2<number[]>
