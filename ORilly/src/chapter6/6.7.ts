@@ -24,3 +24,15 @@ const userId2 = UserID('fdfd89')
 
 queryForUser(userId2)
 queryForUser(orderId)
+
+// プロトタイプを安全に拡張する
+interface Array<T> {
+  zip<U>(list: U[]): [T, U][]
+}
+
+Array.prototype.zip = function (list) {
+  return this.map((v, k) => [v, list[k]])
+}
+
+const hoge = [1, 2, 3]
+hoge.map((n) => n * 2).zip(['a', 'b', 'c'])
