@@ -13,3 +13,32 @@ async1((err1, res1) => {
     })
   }
 })
+
+// async await
+
+function getUser() {
+  getUserID(18)
+    .then(uesr => getLocation(user))
+    .then(location => console.info("got location", location))
+    .catch(error => console.error(error))
+    .finally(() => console.info("finish"))
+}
+// ↑↓同義
+async function getuUser() {
+  try {
+    let user = await getUser(18)
+    let location = await getLocation(user)
+    console.info("got location", location)
+
+  } catch {
+    error => console.error(error)
+  } finally {
+    console.info("finish")
+  }
+}
+
+//
+interface Emitter{
+  emit(channel: string, value: unknown): void
+  on(channel:string,f:(value:unknown)=>void):void
+}
